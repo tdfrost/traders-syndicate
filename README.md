@@ -1,2 +1,2 @@
 # traders-syndicate
-Next.js fronted website for a trading group.
+Next.js frontend website for a trading group.
