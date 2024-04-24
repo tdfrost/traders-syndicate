@@ -2,7 +2,7 @@ import Link from "next/link"
 import React from "react"
 
 export enum ButtonType {
-  primary = "bg-red-orange-500",
+  primary = "bg-red-orange-500 text-white",
   secondary = "bg-white text-black",
 }
 
@@ -16,8 +16,7 @@ const PrimaryButton = (button: IButtonProps) => {
     <Link
       href="/"
       className={
-        button.buttonColor +
-        " font-semibold py-2 px-4 text-lg text-white rounded-full"
+        button.buttonColor + " font-semibold py-1 px-4 text-lg rounded-full"
       }
     >
       {button.text}

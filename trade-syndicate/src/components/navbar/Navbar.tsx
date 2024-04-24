@@ -5,7 +5,7 @@ import { ButtonType } from "../buttons/PrimaryButton"
 
 const Navbar = () => {
   return (
-    <nav className="w-full h-16 bg-black flex">
+    <nav className="w-full h-16 bg-black flex items-center justify-between my-6">
       <div>
         <Link href="/">
           <Image
@@ -17,24 +17,38 @@ const Navbar = () => {
         </Link>
       </div>
 
-      <div>
-        <Link className="text-white" href="/">
-          Home
-        </Link>
-        <Link className="text-white" href="/">
-          About Us
-        </Link>
-        <Link className="text-white" href="/">
-          FAQ
-        </Link>
-        <Link className="text-white" href="/">
-          Memberships
-        </Link>
-      </div>
+      <div className="flex space-x-12">
+        <div className="flex items-center space-x-11">
+          <Link
+            className="text-white font-semibold text-lg hover:text-red-orange-500"
+            href="/"
+          >
+            Home
+          </Link>
+          <Link
+            className="text-white font-semibold text-lg hover:text-red-orange-500"
+            href="/"
+          >
+            About Us
+          </Link>
+          <Link
+            className="text-white font-semibold text-lg hover:text-red-orange-500"
+            href="/"
+          >
+            FAQ
+          </Link>
+          <Link
+            className="text-white font-semibold text-lg hover:text-red-orange-500"
+            href="/"
+          >
+            Memberships
+          </Link>
+        </div>
 
-      <div>
-        <PrimaryButton buttonColor={ButtonType.secondary} text="Login" />
-        <PrimaryButton buttonColor={ButtonType.primary} text="Sign Up" />
+        <div className="flex space-x-4">
+          <PrimaryButton buttonColor={ButtonType.secondary} text="Login" />
+          <PrimaryButton buttonColor={ButtonType.primary} text="Sign Up" />
+        </div>
       </div>
     </nav>
   )
