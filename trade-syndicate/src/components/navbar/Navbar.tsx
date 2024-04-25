@@ -2,6 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import PrimaryButton from "../buttons/PrimaryButton"
 import { ButtonType } from "../buttons/PrimaryButton"
+import HamburgerButton from "../buttons/HamburgerButton"
 
 const Navbar = () => {
   return (
@@ -17,7 +18,7 @@ const Navbar = () => {
         </Link>
       </div>
 
-      <div className="flex space-x-12">
+      <div className="hidden md:flex space-x-12">
         <div className="flex items-center space-x-11">
           <Link
             className="text-white font-semibold text-lg hover:text-red-orange-500"
@@ -49,6 +50,10 @@ const Navbar = () => {
           <PrimaryButton buttonColor={ButtonType.secondary} text="Login" />
           <PrimaryButton buttonColor={ButtonType.primary} text="Sign Up" />
         </div>
+      </div>
+
+      <div className="md:hidden">
+        <HamburgerButton />
       </div>
     </nav>
   )
