@@ -1,7 +1,26 @@
 import Image from "next/image"
 
 const Home = () => {
-  return <div className="text-white">It's rough in these streets</div>
+  return (
+    <div className="text-white">
+      <div className="w-full my-12">
+        <div className="flex flex-col space-y-6">
+          <h1 className="text-4xl font-semibold uppercase">
+            Trade Together
+            <br />
+            Win Together
+          </h1>
+
+          <p className="text-lg font-medium w-4/5">
+            Learn to follow the rules that keep you in the Trade, and the art
+            that helps you win.
+          </p>
+        </div>
+
+        <div></div>
+      </div>
+    </div>
+  )
 }
 
 export default Home
