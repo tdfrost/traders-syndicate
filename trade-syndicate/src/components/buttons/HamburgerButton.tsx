@@ -28,7 +28,8 @@ const HamburgerButton = () => {
             x: "0%",
             y: "-50%",
           }}
-          className="absolute rounded-md h-1.5 w-6 bg-red-orange-500"
+          d-orange-500
+          className="absolute rounded-md h-1.5 w-6 bg-white"
           variants={{
             open: {
               top: ["10%", "50%", "50%"],
@@ -44,7 +45,7 @@ const HamburgerButton = () => {
             x: "-50%",
             y: "-50%",
           }}
-          className="absolute rounded-md h-1.5 w-10 bg-red-orange-500"
+          className="absolute rounded-md h-1.5 w-10 bg-white"
           variants={{
             open: {
               rotate: ["0deg", "0deg", "45deg"],
@@ -59,7 +60,7 @@ const HamburgerButton = () => {
             x: "-50%",
             y: "-50%",
           }}
-          className="absolute rounded-md h-1.5 w-10 bg-red-orange-500"
+          className="absolute rounded-md h-1.5 w-10 bg-white"
           variants={{
             open: {
               rotate: ["0deg", "0deg", "-45deg"],
@@ -74,7 +75,7 @@ const HamburgerButton = () => {
             x: "0%",
             y: "-50%",
           }}
-          className="absolute rounded-md h-1.5 w-6 bg-red-orange-500"
+          className="absolute rounded-md h-1.5 w-6 bg-white"
           variants={{
             open: {
               //rotate: ["0deg", "0deg", "45deg"],
