@@ -9,7 +9,7 @@ const HamburgerButton = () => {
   return (
     <MotionConfig
       transition={{
-        duration: 0.22,
+        duration: 0.54,
         ease: "easeInOut",
       }}
     >
