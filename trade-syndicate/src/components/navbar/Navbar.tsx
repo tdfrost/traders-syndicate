@@ -11,7 +11,7 @@ const Navbar = () => {
 
   return (
     <nav className="sticky top-0 inset-x-0 h-16">
-      <div className="w-full bg-black flex items-center justify-between my-6">
+      <div className="w-full bg-black flex items-center justify-between py-5">
         <div>
           <Link href="/">
             <Image
