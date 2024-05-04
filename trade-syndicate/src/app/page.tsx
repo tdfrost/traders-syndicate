@@ -4,7 +4,7 @@ import Image from "next/image"
 const Home = () => {
   return (
     <div className="text-white">
-      <main className="w-full my-16 space-y-20">
+      <main className="w-full my-16 space-y-20 md:space-y-32">
         <div className="flex flex-col lg:flex-row space-y-10 md:items-center">
           <div className="flex flex-col w-full h-min space-y-4">
             <h1 className="text-4xl md:text-6xl font-semibold uppercase md:leading-[1.15]">
@@ -52,7 +52,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="space-y-12">
+        <div className="space-y-14">
           <h2 className="text-4xl md:hidden font-semibold">
             Become A <br />
             <span className="text-red-orange-500">Self Sufficient</span>
@@ -60,12 +60,13 @@ const Home = () => {
             Trader
           </h2>
 
-          <h2 className="text-3xl hidden md:block">
-            Become a Self Sufficient Trader
+          <h2 className="text-5xl hidden md:block font-semibold text-center">
+            Become A
+            <span className="text-red-orange-500"> Self Sufficient</span> Trader
           </h2>
 
-          <div className="w-full grid grid-cols-1 gap-14">
-            <div className=" flex flex-col px-7 min-h-80 bg-shark-950 justify-center items-start space-y-4 rounded-md">
+          <div className="w-full grid grid-cols-1 md:flex gap-12 md:justify-center md:py-8 md:space-x-8">
+            <div className="flex flex-col px-7 min-h-80 md:max-w-sm bg-shark-950 justify-center items-start space-y-4 rounded-md">
               <Image
                 src="/icons/meeting-icon.svg"
                 width={80}
@@ -79,7 +80,7 @@ const Home = () => {
               </p>
             </div>
 
-            <div className="flex flex-col px-7 min-h-80 bg-shark-950 justify-center items-start space-y-4 rounded-md">
+            <div className="flex flex-col px-7 min-h-80 md:max-w-sm bg-shark-950 justify-center items-start space-y-4 rounded-md">
               <Image
                 src="/icons/bargraph.svg"
                 width={80}
@@ -93,7 +94,7 @@ const Home = () => {
               </p>
             </div>
 
-            <div className="flex flex-col px-7 min-h-80 bg-shark-950 justify-center items-start space-y-4 rounded-md">
+            <div className="flex flex-col px-7 min-h-80 md:max-w-sm bg-shark-950 justify-center items-start space-y-4 rounded-md">
               <Image
                 src="/icons/coin.svg"
                 width={80}
@@ -106,6 +107,14 @@ const Home = () => {
                 turpis cursus in hac
               </p>
             </div>
+          </div>
+
+          <div className="flex py-2 justify-center">
+            <PrimaryButton
+              buttonColor={ButtonType.primary}
+              text="Learn More"
+              textCapitalized
+            />
           </div>
         </div>
       </main>
