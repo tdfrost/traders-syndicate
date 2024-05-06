@@ -94,7 +94,7 @@ const Navbar = () => {
               initial="closed"
               animate="open"
               exit="closed"
-              className="fixed inset-0 bg-[#28282B] p-8 container mx-auto space-y-12 flex flex-col justify-center items-center"
+              className="fixed inset-0 bg-[#28282B] p-8 container mx-auto space-y-12 flex flex-col justify-center items-center z-10"
             >
               <motion.div
                 variants={{

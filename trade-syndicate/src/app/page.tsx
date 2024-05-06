@@ -118,7 +118,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row space-y-20 justify-center">
+        <div className="flex flex-col md:flex-row space-y-20 md:space-x-6 md:justify-around">
           <div>
             <Image
               src="/images/iPhone-15.png"
@@ -129,13 +129,13 @@ const Home = () => {
             />
           </div>
 
-          <div className="flex flex-col space-y-4">
+          <div className="flex flex-col md:justify-center md:w-2/5 space-y-4">
             <h2 className="text-4xl md:text-5xl font-semibold">
               Welcome To <br />
               The <span className="text-red-orange-500">Syndicate</span>
             </h2>
 
-            <p className="text-xl">
+            <p className="text-xl md:w-3/4">
               Scelerisque aenean cras lacinia feugiat phasellus praesent
               placerat suspendisse arcu mollis litora et sociosqu at rhoncus
               neque porttitor auctor vel augue imperdiet viverra hendrerit
@@ -144,17 +144,25 @@ const Home = () => {
 
             <ul className="text-xl list-disc list-inside marker:text-red-orange-500 marker:text-4xl">
               <li className="">
-                <span className="-ml-5 relative ">
+                <span className="-ml-5 relative -z-10">
                   Scelerisque aenean cras lacinia
                 </span>
               </li>
               <li>
-                <span className="-ml-5 relative ">litora et sociosqu</span>
+                <span className="-ml-5 relative -z-10">litora et sociosqu</span>
               </li>
               <li>
-                <span className="-ml-5 relative ">porttitor auctor</span>
+                <span className="-ml-5 relative -z-10">porttitor auctor</span>
               </li>
             </ul>
+
+            <div className="flex py-8 justify-start">
+              <PrimaryButton
+                buttonColor={ButtonType.primary}
+                text="Read More"
+                textCapitalized
+              />
+            </div>
           </div>
         </div>
       </main>
