@@ -1,4 +1,5 @@
 import PrimaryButton, { ButtonType } from "@/components/buttons/PrimaryButton"
+import TimeLine from "@/components/timeline/TimeLine"
 import Image from "next/image"
 
 const Home = () => {
@@ -66,7 +67,7 @@ const Home = () => {
           </h2>
 
           <div className="w-full grid grid-cols-1 md:flex gap-12 md:justify-center md:py-8 md:space-x-8">
-            <div className="flex flex-col px-7 min-h-80 md:max-w-sm bg-shark-950 justify-center items-start space-y-4 rounded-md">
+            <div className="flex flex-col px-8 min-h-80 md:max-w-sm bg-shark-950 justify-center items-start space-y-4 rounded-md">
               <Image
                 src="/icons/meeting-icon.svg"
                 width={80}
@@ -80,7 +81,7 @@ const Home = () => {
               </p>
             </div>
 
-            <div className="flex flex-col px-7 min-h-80 md:max-w-sm bg-shark-950 justify-center items-start space-y-4 rounded-md">
+            <div className="flex flex-col px-8 min-h-80 md:max-w-sm bg-shark-950 justify-center items-start space-y-4 rounded-md">
               <Image
                 src="/icons/bargraph.svg"
                 width={80}
@@ -94,7 +95,7 @@ const Home = () => {
               </p>
             </div>
 
-            <div className="flex flex-col px-7 min-h-80 md:max-w-sm bg-shark-950 justify-center items-start space-y-4 rounded-md">
+            <div className="flex flex-col px-8 min-h-80 md:max-w-sm bg-shark-950 justify-center items-start space-y-4 rounded-md">
               <Image
                 src="/icons/coin.svg"
                 width={80}
@@ -163,6 +164,17 @@ const Home = () => {
                 textCapitalized
               />
             </div>
+          </div>
+        </div>
+
+        <div>
+          <h2 className="text-5xl hidden md:block font-semibold">
+            Member's
+            <span className="text-red-orange-500"> Benefits</span>
+          </h2>
+
+          <div>
+            <TimeLine />
           </div>
         </div>
       </main>
