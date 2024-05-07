@@ -168,7 +168,7 @@ const Home = () => {
         </div>
 
         <div>
-          <div className="w-full mb-24">
+          <div className="md:hidden w-full mb-24">
             <Image
               src="/images/particle-sphere.webp"
               width={0}
