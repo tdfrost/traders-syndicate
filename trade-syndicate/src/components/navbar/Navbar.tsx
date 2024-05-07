@@ -10,7 +10,7 @@ const Navbar = () => {
   const [mobileNav, toggleMobileNav] = useCycle(false, true)
 
   return (
-    <nav className="sticky top-0 inset-x-0 h-16">
+    <nav className="sticky top-0 inset-x-0 h-16 z-50">
       <div className="w-full bg-black flex items-center justify-between py-5">
         <div>
           <Link href="/">

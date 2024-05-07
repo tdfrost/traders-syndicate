@@ -168,7 +168,18 @@ const Home = () => {
         </div>
 
         <div>
-          <h2 className="text-5xl hidden md:block font-semibold">
+          <div className="w-full mb-24">
+            <Image
+              src="/images/particle-sphere.webp"
+              width={0}
+              height={0}
+              layout="responsive"
+              alt="image of a sphere made of white particles"
+              loading="lazy"
+            />
+          </div>
+
+          <h2 className="text-4xl md:text-5xl font-semibold mb-16">
             Member's
             <span className="text-red-orange-500"> Benefits</span>
           </h2>
