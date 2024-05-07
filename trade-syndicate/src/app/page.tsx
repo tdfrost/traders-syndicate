@@ -1,4 +1,5 @@
 import PrimaryButton, { ButtonType } from "@/components/buttons/PrimaryButton"
+import ClosingCta from "@/components/cta/ClosingCta"
 import TimeLine from "@/components/timeline/TimeLine"
 import Image from "next/image"
 
@@ -186,6 +187,10 @@ const Home = () => {
 
           <div>
             <TimeLine />
+          </div>
+
+          <div className="w-full flex justify-center my-52">
+            <ClosingCta />
           </div>
         </div>
       </main>
