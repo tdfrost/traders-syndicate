@@ -2,10 +2,15 @@
 
 import { AnimatePresence, motion } from "framer-motion"
 import Image from "next/image"
-import { before } from "node:test"
 import React, { useState } from "react"
 
-const FaqQuesiton = () => {
+const FaqQuesiton = ({
+  question,
+  answer,
+}: {
+  question: string
+  answer: string
+}) => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
@@ -34,9 +39,28 @@ const FaqQuesiton = () => {
       flex justify-between h-full grow items-start"
       >
         <h2 className="text-xl font-semibold text-red-orange-500 uppercase">
-          Tu pregunta Amigo
+          {question}
         </h2>
-        <div
+        <motion.div
+          variants={{
+            pointDown: {
+              rotate: 0,
+              transition: {
+                type: "spring",
+                bounce: 0.4,
+                duration: 0.4,
+              },
+            },
+            pointUp: {
+              rotate: -180,
+              transition: {
+                type: "spring",
+                bounce: 0.4,
+                duration: 0.4,
+              },
+            },
+          }}
+          animate={!isOpen ? "pointDown" : "pointUp"}
           onClick={() => {
             setIsOpen(!isOpen)
             console.log(setIsOpen)
@@ -48,7 +72,7 @@ const FaqQuesiton = () => {
             height={25}
             alt="icon of a downward facing arrow"
           />
-        </div>
+        </motion.div>
       </div>
       <AnimatePresence mode="wait">
         {isOpen && (
@@ -81,16 +105,7 @@ const FaqQuesiton = () => {
               },
             }}
           >
-            <p className="text-white text-lg">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              etiam sit amet nisl purus in mollis nunc. A iaculis at erat
-              pellentesque adipiscing commodo. Ipsum a arcu cursus vitae congue.
-              Nisl vel pretium lectus quam id leo in vitae turpis. Viverra
-              adipiscing at in tellus integer feugiat scelerisque. Magna sit
-              amet purus gravida quis blandit turpis. Aenean et tortor at risus
-              viverra.
-            </p>
+            <p className="text-white text-lg">{answer}</p>
           </motion.div>
         )}
       </AnimatePresence>
