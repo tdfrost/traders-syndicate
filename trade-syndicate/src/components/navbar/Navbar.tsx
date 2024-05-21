@@ -5,6 +5,7 @@ import Link from "next/link"
 import PrimaryButton, { ButtonType } from "../buttons/PrimaryButton"
 import HamburgerButton from "../buttons/HamburgerButton"
 import { AnimatePresence, MotionConfig, motion, useCycle } from "framer-motion"
+import MotionLogo from "../buttons/MotionLogo"
 
 const Navbar = () => {
   const [mobileNav, toggleMobileNav] = useCycle(false, true)
@@ -14,12 +15,7 @@ const Navbar = () => {
       <div className="w-full bg-black flex items-center justify-between py-5">
         <div>
           <Link href="/">
-            <Image
-              src="/trade-syndicate-logo-wh.svg"
-              width={50}
-              height={50}
-              alt="Traders Syndicate logo"
-            />
+            <MotionLogo />
           </Link>
         </div>
 
