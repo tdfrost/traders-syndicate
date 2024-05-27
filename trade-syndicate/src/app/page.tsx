@@ -5,12 +5,23 @@ import ClosingCta from "@/components/cta/ClosingCta"
 import Loader from "@/components/loader/Loader"
 import Navbar from "@/components/navbar/Navbar"
 import TimeLine from "@/components/timeline/TimeLine"
-import { AnimatePresence, motion } from "framer-motion"
+import { AnimatePresence, delay, motion } from "framer-motion"
 import Image from "next/image"
 import { useState } from "react"
 
 const Home = () => {
   const [loading, setLoading] = useState(true)
+
+  const variants = {
+    hidden: {
+      opacity: 0,
+      transition: { type: "easeInOut", duration: 0.8 },
+    },
+    reveal: {
+      opacity: 1,
+      transition: { delay: 1.8, type: "easeIn", duration: 0.4 },
+    },
+  }
 
   return (
     <AnimatePresence>
@@ -29,7 +40,12 @@ const Home = () => {
           <Loader setLoading={setLoading} />
         </motion.div>
       ) : (
-        <div className="text-white">
+        <motion.div
+          variants={variants}
+          initial="hidden"
+          animate="reveal"
+          className="text-white"
+        >
           <Navbar />
           <main className="w-full my-16 space-y-20 md:space-y-32">
             <div className="flex flex-col lg:flex-row space-y-10 md:items-center">
@@ -231,7 +247,7 @@ const Home = () => {
               </div>
             </div>
           </main>
-        </div>
+        </motion.div>
       )}
     </AnimatePresence>
   )
