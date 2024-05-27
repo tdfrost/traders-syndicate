@@ -1,11 +1,15 @@
 import { motion, progress } from "framer-motion"
-import React, { useState } from "react"
+import React, { Dispatch, SetStateAction, useState } from "react"
 
-const MotionLogo = () => {
+const MotionLogo = ({
+  setLogoDrawn,
+}: {
+  setLogoDrawn: Dispatch<SetStateAction<boolean>>
+}) => {
   const draw = {
     hidden: { pathLength: 0, opacity: 0, fillOpacity: 0 },
     visible: (i: number) => {
-      const delay = 0.4 + i * 0.5
+      const delay = 0.2 + i * 0.5
       return {
         pathLength: 1,
         opacity: 1,
@@ -24,13 +28,6 @@ const MotionLogo = () => {
         },
       }
     },
-    fadeOut: {
-      opacity: 0,
-      transition: {
-        ease: "easeInOut",
-        duration: 0.8,
-      },
-    },
   }
 
   return (
@@ -42,7 +39,7 @@ const MotionLogo = () => {
       xmlns="http://www.w3.org/2000/svg"
       initial="hidden"
       animate="visible"
-      exit="fadeOut"
+      onAnimationComplete={() => setLogoDrawn(true)}
     >
       <motion.path
         d="M1.99314 0.747018C0.376064 2.47842 0 3.39938 0 5.35182C0 7.78316 0.601702 8.96199 2.89569 10.9513C6.16745 13.751 12.2597 15.9981 18.5023 16.6981L20.6835 16.9559V22.408C20.6835 25.4288 20.5707 27.8969 20.4579 27.8969C20.3075 27.8969 18.3895 26.8655 16.1331 25.5761L12.034 23.2921V19.7925V16.2928L10.6426 15.8508C9.85288 15.6297 8.91272 15.2982 8.53665 15.1877C7.93495 14.9298 7.89734 15.2614 7.97256 20.1977L8.08538 25.4656L14.2904 28.9653L20.4955 32.5017L20.6083 37.4381L20.7211 42.3376L18.4647 40.6062L16.2084 38.8748L16.0955 34.8226L15.9827 30.8072L14.0272 29.702L12.034 28.56V34.6015V40.6062L18.3519 45.3215L24.6322 50L24.745 31.7281C24.7826 21.6344 24.7826 13.3458 24.7074 13.3089C24.6322 13.2352 22.9775 13.0142 21.022 12.7932C13.0494 11.9091 7.0324 9.7356 4.17431 6.71484C2.3692 4.79925 1.99314 3.58358 2.55723 1.5943C2.78287 0.747018 2.89569 0.0470877 2.85809 0.0102493C2.82048 -0.0634276 2.40681 0.268118 1.99314 0.747018Z"
