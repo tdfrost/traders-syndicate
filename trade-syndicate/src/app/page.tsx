@@ -15,7 +15,17 @@ const Home = () => {
   return (
     <AnimatePresence>
       {loading ? (
-        <motion.div key="loader">
+        <motion.div
+          key="loader"
+          exit={{
+            opacity: 0,
+            transition: {
+              duration: 0.6,
+              type: "easeInOut",
+              delay: 1,
+            },
+          }}
+        >
           <Loader setLoading={setLoading} />
         </motion.div>
       ) : (

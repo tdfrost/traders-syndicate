@@ -9,7 +9,7 @@ const MotionLogo = ({
   const draw = {
     hidden: { pathLength: 0, opacity: 0, fillOpacity: 0 },
     visible: (i: number) => {
-      const delay = 0.2 + i * 0.5
+      const delay = 0.18 + i * 0.5
       return {
         pathLength: 1,
         opacity: 1,
@@ -18,11 +18,11 @@ const MotionLogo = ({
           pathLength: {
             delay,
             type: "easeInOut",
-            duration: 1.1,
+            duration: 1.3,
             opacity: { delay, duration: 0.01 },
           },
           fillOpacity: {
-            delay: delay + 1.1,
+            delay: delay + 1.4,
             duration: 0.5,
           },
         },
@@ -34,7 +34,7 @@ const MotionLogo = ({
     <motion.svg
       width="150"
       height="150"
-      viewBox="0 0 50 51"
+      viewBox="0 0 50 54"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       initial="hidden"

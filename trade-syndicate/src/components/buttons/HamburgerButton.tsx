@@ -28,7 +28,6 @@ const HamburgerButton = () => {
             x: "0%",
             y: "-50%",
           }}
-          d-orange-500
           className="absolute rounded-md h-1.5 w-6 bg-red-orange-500"
           variants={{
             open: {

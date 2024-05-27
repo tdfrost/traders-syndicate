@@ -15,33 +15,31 @@ const Loader = ({
       opacity: 1,
       y: 0,
       transition: {
-        type: "easeIn",
+        type: "easeInOut",
         opacity: {
-          delay: 0.2,
-          duration: 0.5,
+          delay: 0.15,
+          duration: 0.7,
         },
         y: {
-          type: "easeInOut",
-          duration: 0.6,
+          type: "easeIn",
+          duration: 0.7,
         },
       },
     },
   }
 
   return (
-    <div className="overflow-hidden h-screen w-full flex flex-col space-y-6 justify-center items-center">
+    <div className="overflow-hidden h-screen w-full flex flex-col space-y-4 justify-center items-center">
       <MotionLogo key="intro-Logo" setLogoDrawn={setLogoDrawn} />
       <motion.p
         variants={variants}
         initial="hide"
         animate={!logoDrawn ? "hide" : "show"}
         onAnimationComplete={() => {
-          setTimeout(() => {
-            setLoading(false)
-          }, 600)
+          setLoading(false)
         }}
         key="intro-text"
-        className="text-white font-medium text-2xl"
+        className="text-white font-semibold text-2xl text center"
       >
         Welcome to the Syndicate
       </motion.p>
