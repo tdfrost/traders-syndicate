@@ -5,12 +5,14 @@ import ClosingCta from "@/components/cta/ClosingCta"
 import Loader from "@/components/loader/Loader"
 import Navbar from "@/components/navbar/Navbar"
 import TimeLine from "@/components/timeline/TimeLine"
-import { AnimatePresence, delay, motion } from "framer-motion"
+import { AnimatePresence, delay, motion, useInView } from "framer-motion"
 import Image from "next/image"
-import { useState } from "react"
+import { useRef, useState } from "react"
 
 const Home = () => {
   const [loading, setLoading] = useState(true)
+  const ref = useRef(null)
+  const isInView = useInView(ref)
 
   const variants = {
     hidden: {
@@ -20,6 +22,29 @@ const Home = () => {
     reveal: {
       opacity: 1,
       transition: { delay: 1.8, type: "easeIn", duration: 0.4 },
+    },
+    fadeInDownHidden: { opacity: 0, y: -25 },
+    fadeInDownShow: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        y: {
+          duration: 0.4,
+        },
+        staggerChildren: 0.1,
+        delayChildren: 0.3,
+      },
+    },
+  }
+
+  const card = {
+    fadeInDownHidden: {
+      opacity: 0,
+      y: -25,
+    },
+    fadeInDownShow: {
+      opacity: 1,
+      y: 0,
     },
   }
 
@@ -45,10 +70,14 @@ const Home = () => {
           initial="hidden"
           animate="reveal"
           className="text-white"
+          ref={ref}
         >
           <Navbar />
           <main className="w-full my-16 space-y-20 md:space-y-32">
-            <div className="flex flex-col lg:flex-row space-y-10 md:items-center">
+            <div
+              className="flex flex-col lg:flex-row space-y-10 md:items-center"
+              id="hero-section"
+            >
               <div className="flex flex-col w-full h-min space-y-4">
                 <h1 className="text-4xl md:text-6xl font-semibold uppercase md:leading-[1.15]">
                   Trade Together
@@ -96,7 +125,7 @@ const Home = () => {
               </div>
             </div>
 
-            <div className="space-y-14">
+            <div className="space-y-14" id="card-section">
               <h2 className="text-4xl md:hidden font-semibold">
                 Become A <br />
                 <span className="text-red-orange-500">Self Sufficient</span>
@@ -110,8 +139,21 @@ const Home = () => {
                 Trader
               </h2>
 
-              <div className="w-full grid grid-cols-1 md:flex gap-12 md:justify-center md:py-8 md:space-x-8">
-                <div className="flex flex-col px-8 min-h-80 md:max-w-sm bg-shark-950 justify-center items-start space-y-4 rounded-md">
+              <motion.div
+                className="w-full grid grid-cols-1 md:flex gap-12 md:justify-center md:py-8 md:space-x-8"
+                variants={variants}
+                initial="fadeInDownHidden"
+                whileInView="fadeInDownShow"
+                viewport={{
+                  amount: "all",
+                  margin: "100px",
+                  once: true,
+                }}
+              >
+                <motion.div
+                  className="flex flex-col px-8 min-h-80 md:max-w-sm bg-shark-950 justify-center items-start space-y-4 rounded-md"
+                  variants={card}
+                >
                   <Image
                     src="/icons/meeting-icon.svg"
                     width={80}
@@ -125,9 +167,12 @@ const Home = () => {
                     praesent tristique magna sit amet purus gravida quis blandit
                     turpis cursus in hac
                   </p>
-                </div>
+                </motion.div>
 
-                <div className="flex flex-col px-8 min-h-80 md:max-w-sm bg-shark-950 justify-center items-start space-y-4 rounded-md">
+                <motion.div
+                  className="flex flex-col px-8 min-h-80 md:max-w-sm bg-shark-950 justify-center items-start space-y-4 rounded-md"
+                  variants={card}
+                >
                   <Image
                     src="/icons/bargraph.svg"
                     width={80}
@@ -141,9 +186,12 @@ const Home = () => {
                     praesent tristique magna sit amet purus gravida quis blandit
                     turpis cursus in hac
                   </p>
-                </div>
+                </motion.div>
 
-                <div className="flex flex-col px-8 min-h-80 md:max-w-sm bg-shark-950 justify-center items-start space-y-4 rounded-md">
+                <motion.div
+                  className="flex flex-col px-8 min-h-80 md:max-w-sm bg-shark-950 justify-center items-start space-y-4 rounded-md"
+                  variants={card}
+                >
                   <Image
                     src="/icons/coin.svg"
                     width={80}
@@ -157,8 +205,8 @@ const Home = () => {
                     praesent tristique magna sit amet purus gravida quis blandit
                     turpis cursus in hac
                   </p>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
 
               <div className="flex py-2 justify-center">
                 <PrimaryButton
