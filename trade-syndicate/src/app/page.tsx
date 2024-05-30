@@ -44,7 +44,7 @@ const Home = () => {
     },
     fadeInDownShow: {
       opacity: 1,
-      y: 0,
+      y: isInView ? -25 : 0,
     },
   }
 
@@ -145,8 +145,7 @@ const Home = () => {
                 initial="fadeInDownHidden"
                 whileInView="fadeInDownShow"
                 viewport={{
-                  amount: "all",
-                  margin: "100px",
+                  margin: "-200px",
                   once: true,
                 }}
               >
