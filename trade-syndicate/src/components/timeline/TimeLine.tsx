@@ -1,15 +1,20 @@
 "use client"
 
+import { motion, useInView } from "framer-motion"
 import Image from "next/image"
 import React, { useRef } from "react"
 
 const TimeLine = () => {
-  const timeline1 = useRef(null)
-  const timeline2 = useRef(null)
-  const timeline3 = useRef(null)
-  const circle1 = useRef(null)
-  const circle2 = useRef(null)
-  const circle3 = useRef(null)
+  const contentOne = useRef(null)
+  const contentTwo = useRef(null)
+  const contentThree = useRef(null)
+
+  const isInViewOne = useInView(contentOne, { margin: "-300px", once: true })
+  const isInViewTwo = useInView(contentTwo, { margin: "-200px", once: true })
+  const isInViewThree = useInView(contentThree, {
+    margin: "-200px",
+    once: true,
+  })
 
   return (
     <div className="my-28">
@@ -28,7 +33,15 @@ const TimeLine = () => {
             />
           </div>
 
-          <div className="md:w-[300px]">
+          <motion.div
+            ref={contentTwo}
+            animate={{
+              x: isInViewTwo ? 0 : -20,
+              opacity: isInViewTwo ? 1 : 0,
+              transition: { duration: 0.25 },
+            }}
+            className="md:w-[300px]"
+          >
             <p className="text-xl text-red-orange-500 uppercase font-light">
               Second
             </p>
@@ -37,7 +50,7 @@ const TimeLine = () => {
               praesent tristique magna sit amet purus gravida quis blandit
               turpis cursus in hac
             </p>
-          </div>
+          </motion.div>
 
           <div className="hidden md:flex w-full justify-center mb-24 md:mb-0">
             <Image
@@ -54,7 +67,6 @@ const TimeLine = () => {
           <div className="relative">
             <div
               id="circle1"
-              ref={circle1}
               className="items-center justify-center text-black text-2xl font-semibold rounded-full bg-[#e5e5e5] h-16 w-16 inline-flex"
             >
               1
@@ -63,13 +75,11 @@ const TimeLine = () => {
 
           <div
             id="timeline2"
-            ref={timeline2}
             className="h-[120px] md:h-[270px] w-[5px] bg-[#e5e5e5]"
           />
           <div className="relative">
             <div
               id="circle2"
-              ref={circle2}
               className="items-center justify-center text-black text-2xl font-semibold rounded-full bg-[#e5e5e5] h-16 w-16 inline-flex"
             >
               2
@@ -78,13 +88,11 @@ const TimeLine = () => {
 
           <div
             id="timeline3"
-            ref={timeline3}
             className="h-[120px] md:h-[270px] w-[5px] bg-[#e5e5e5]"
           />
           <div className="relative">
             <div
               id="circle3"
-              ref={circle3}
               className="items-center justify-center text-black text-2xl font-semibold rounded-full bg-[#e5e5e5] h-16 w-16 inline-flex"
             >
               3
@@ -96,7 +104,15 @@ const TimeLine = () => {
           id="desktop-right-content"
           className="hidden md:flex flex-col justify-between h-auto"
         >
-          <div className="md:w-[300px]">
+          <motion.div
+            ref={contentOne}
+            animate={{
+              x: isInViewOne ? 0 : 20,
+              opacity: isInViewOne ? 1 : 0,
+              transition: { duration: 0.25 },
+            }}
+            className="md:w-[300px]"
+          >
             <p className="text-xl text-red-orange-500 uppercase font-light">
               First
             </p>
@@ -105,7 +121,7 @@ const TimeLine = () => {
               praesent tristique magna sit amet purus gravida quis blandit
               turpis cursus in hac
             </p>
-          </div>
+          </motion.div>
 
           <div className="hidden md:flex w-full justify-center mb-24 md:mb-0">
             <Image
@@ -117,7 +133,15 @@ const TimeLine = () => {
             />
           </div>
 
-          <div className="md:w-[300px]">
+          <motion.div
+            ref={contentThree}
+            animate={{
+              x: isInViewThree ? 0 : 20,
+              opacity: isInViewThree ? 1 : 0,
+              transition: { duration: 0.25 },
+            }}
+            className="md:w-[300px]"
+          >
             <p className="text-xl text-red-orange-500 uppercase font-light">
               Third
             </p>
@@ -126,7 +150,7 @@ const TimeLine = () => {
               praesent tristique magna sit amet purus gravida quis blandit
               turpis cursus in hac
             </p>
-          </div>
+          </motion.div>
         </div>
 
         <div

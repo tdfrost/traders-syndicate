@@ -29,9 +29,9 @@ const Home = () => {
       y: 0,
       transition: {
         y: {
-          duration: 0.4,
+          duration: 0.5,
         },
-        staggerChildren: 0.1,
+        staggerChildren: 0.2,
         delayChildren: 0.3,
       },
     },
