@@ -9,12 +9,23 @@ const TimeLine = () => {
   const contentTwo = useRef(null)
   const contentThree = useRef(null)
 
-  const isInViewOne = useInView(contentOne, { margin: "-300px", once: true })
-  const isInViewTwo = useInView(contentTwo, { margin: "-200px", once: true })
-  const isInViewThree = useInView(contentThree, {
-    margin: "-200px",
-    once: true,
-  })
+  const contentOneMobile = useRef(null)
+  const contentTwoMobile = useRef(null)
+  const contentThreeMobile = useRef(null)
+
+  const introAnimationSettings = { margin: "-300px", once: true }
+  const baseAnimationSettings = { margin: "-200px", once: true }
+
+  const isInViewOne = useInView(contentOne, introAnimationSettings)
+  const isInViewTwo = useInView(contentTwo, baseAnimationSettings)
+  const isInViewThree = useInView(contentThree, baseAnimationSettings)
+
+  const isInViewOneMobile = useInView(contentOneMobile, baseAnimationSettings)
+  const isInViewTwoMobile = useInView(contentTwoMobile, baseAnimationSettings)
+  const isInViewThreeMobile = useInView(
+    contentThreeMobile,
+    baseAnimationSettings
+  )
 
   return (
     <div className="my-28">
@@ -157,29 +168,50 @@ const TimeLine = () => {
           id="mobile-timeline-content"
           className="md:hidden flex flex-col justify-between h-auto"
         >
-          <div>
+          <motion.div
+            ref={contentOneMobile}
+            animate={{
+              opacity: isInViewOneMobile ? 1 : 0,
+              x: isInViewOneMobile ? 0 : -20,
+              transition: { duration: 0.25 },
+            }}
+          >
             <h3 className="text-lg font-bold uppercase">porttitor auctor</h3>
             <p>
               praesent tristique magna sit amet purus gravida quis blandit
               turpis cursus in hac
             </p>
-          </div>
+          </motion.div>
 
-          <div>
+          <motion.div
+            ref={contentTwoMobile}
+            animate={{
+              opacity: isInViewTwoMobile ? 1 : 0,
+              x: isInViewTwoMobile ? 0 : -20,
+              transition: { duration: 0.25 },
+            }}
+          >
             <h3 className="text-lg font-bold uppercase">porttitor auctor</h3>
             <p>
               praesent tristique magna sit amet purus gravida quis blandit
               turpis cursus in hac
             </p>
-          </div>
+          </motion.div>
 
-          <div>
+          <motion.div
+            ref={contentThreeMobile}
+            animate={{
+              opacity: isInViewThreeMobile ? 1 : 0,
+              x: isInViewThreeMobile ? 0 : -20,
+              transition: { duration: 0.25 },
+            }}
+          >
             <h3 className="text-lg font-bold uppercase">porttitor auctor</h3>
             <p>
               praesent tristique magna sit amet purus gravida quis blandit
               turpis cursus in hac
             </p>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>
