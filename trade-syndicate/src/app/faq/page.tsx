@@ -6,7 +6,7 @@ const Faq = () => {
   return (
     <div className="w-full my-8">
       <Navbar />
-      <div className="h-[300px] md:h-[360px] flex items-center justify-center">
+      <div className="h-[300px] md:h-[320px] flex items-center justify-center">
         <h1 className="text-white text-6xl md:text-7xl text-center font-medium md:font-semibold tracking-wider">
           FAQ
         </h1>
