@@ -2,8 +2,8 @@ import Link from "next/link"
 import React from "react"
 
 export enum ButtonType {
-  primary = "bg-red-orange-500 text-white",
-  secondary = "bg-white text-black",
+  primary = "bg-red-orange-500 text-white hover:bg-red-orange-700",
+  secondary = "bg-white text-black hover:bg-gray-300",
 }
 
 interface IButtonProps {

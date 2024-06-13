@@ -73,8 +73,8 @@ const Membership = () => {
       opacity: 1,
       x: 0,
       transition: {
-        y: {
-          duration: 0.5,
+        x: {
+          duration: 0.7,
         },
         staggerChildren: 0.2,
         delayChildren: 0.3,

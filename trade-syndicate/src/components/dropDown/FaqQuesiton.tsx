@@ -42,6 +42,7 @@ const FaqQuesiton = ({
           {question}
         </h2>
         <motion.div
+          className="cursor-pointer"
           variants={{
             pointDown: {
               rotate: 0,
@@ -68,8 +69,8 @@ const FaqQuesiton = ({
         >
           <Image
             src="/icons/down-arrow.svg"
-            width={25}
-            height={25}
+            width={30}
+            height={30}
             alt="icon of a downward facing arrow"
           />
         </motion.div>
