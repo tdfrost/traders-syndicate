@@ -1,10 +1,13 @@
+"use client"
+
 import MembershipCard, {
   Details,
   Size,
 } from "@/components/cards/MembershipCard"
 import Navbar from "@/components/navbar/Navbar"
+import { motion, useInView } from "framer-motion"
 import Link from "next/link"
-import React from "react"
+import React, { useRef } from "react"
 
 const cardOne: Details = {
   name: "Free",
@@ -53,6 +56,43 @@ const cardThree: Details = {
 }
 
 const Membership = () => {
+  const ref = useRef(null)
+  const isInView = useInView(ref)
+
+  const variants = {
+    hidden: {
+      opacity: 0,
+      transition: { type: "easeInOut", duration: 0.8 },
+    },
+    reveal: {
+      opacity: 1,
+      transition: { delay: 1.8, type: "easeIn", duration: 0.4 },
+    },
+    fadeInRightHidden: { opacity: 0, x: -25 },
+    fadeInRightShow: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        y: {
+          duration: 0.5,
+        },
+        staggerChildren: 0.2,
+        delayChildren: 0.3,
+      },
+    },
+  }
+
+  const card = {
+    fadeInRightHidden: {
+      opacity: 0,
+      x: -25,
+    },
+    fadeInRightShow: {
+      opacity: 1,
+      x: isInView ? -25 : 0,
+    },
+  }
+
   return (
     <div className="w-full my-8">
       <Navbar />
@@ -64,34 +104,48 @@ const Membership = () => {
           Learn to follow the rules that keep you in the trade.
         </h2>
       </div>
-      <div className="flex flex-col md:flex-row items-center justify-around space-y-8 md:space-y-0 md:space-x-8">
-        <MembershipCard
-          name={cardOne.name}
-          headline={cardOne.headline}
-          price={cardOne.price}
-          offerings={cardOne.offerings}
-          buttonText={cardOne.buttonText}
-          size={cardOne.size}
-        />
+      <motion.div
+        variants={variants}
+        initial="fadeInRightHidden"
+        whileInView="fadeInRightShow"
+        viewport={{
+          once: true,
+        }}
+        className="flex flex-col md:flex-row items-center justify-around space-y-8 md:space-y-0 md:space-x-8"
+      >
+        <motion.div variants={card}>
+          <MembershipCard
+            name={cardOne.name}
+            headline={cardOne.headline}
+            price={cardOne.price}
+            offerings={cardOne.offerings}
+            buttonText={cardOne.buttonText}
+            size={cardOne.size}
+          />
+        </motion.div>
 
-        <MembershipCard
-          name={cardTwo.name}
-          headline={cardTwo.headline}
-          price={cardTwo.price}
-          offerings={cardTwo.offerings}
-          buttonText={cardTwo.buttonText}
-          size={cardTwo.size}
-        />
+        <motion.div variants={card}>
+          <MembershipCard
+            name={cardTwo.name}
+            headline={cardTwo.headline}
+            price={cardTwo.price}
+            offerings={cardTwo.offerings}
+            buttonText={cardTwo.buttonText}
+            size={cardTwo.size}
+          />
+        </motion.div>
 
-        <MembershipCard
-          name={cardThree.name}
-          headline={cardThree.headline}
-          price={cardThree.price}
-          offerings={cardThree.offerings}
-          buttonText={cardThree.buttonText}
-          size={cardThree.size}
-        />
-      </div>
+        <motion.div variants={card}>
+          <MembershipCard
+            name={cardThree.name}
+            headline={cardThree.headline}
+            price={cardThree.price}
+            offerings={cardThree.offerings}
+            buttonText={cardThree.buttonText}
+            size={cardThree.size}
+          />
+        </motion.div>
+      </motion.div>
     </div>
   )
 }
