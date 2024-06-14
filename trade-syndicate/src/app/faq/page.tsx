@@ -1,15 +1,41 @@
+"use client"
+
 import FaqQuesiton from "@/components/dropDown/FaqQuesiton"
 import Navbar from "@/components/navbar/Navbar"
+import splitStringUsingRegex from "@/utils/splitStringUsingRegex"
+import { motion } from "framer-motion"
 import React from "react"
 
+const textVariants = {
+  hidden: { opacity: 0 },
+  reveal: { opacity: 1 },
+}
+
+const headlinetext = "FAQ"
+
 const Faq = () => {
+  const headlineCharacters = splitStringUsingRegex(headlinetext)
+
   return (
     <div className="w-full my-8">
       <Navbar />
       <div className="h-[300px] md:h-[320px] flex items-center justify-center">
-        <h1 className="text-white text-6xl md:text-7xl text-center font-medium md:font-semibold tracking-wider">
-          FAQ
-        </h1>
+        <motion.h1
+          initial="hidden"
+          whileInView="reveal"
+          transition={{ staggerChildren: 0.02 }}
+          className="text-white text-6xl md:text-7xl text-center font-medium md:font-semibold tracking-wider"
+        >
+          {headlineCharacters.map((character: string) => (
+            <motion.span
+              key={character}
+              transition={{ duration: 0.5 }}
+              variants={textVariants}
+            >
+              {character}
+            </motion.span>
+          ))}
+        </motion.h1>
       </div>
       <div className="flex flex-col space-y-9 md:space-y-11">
         <FaqQuesiton

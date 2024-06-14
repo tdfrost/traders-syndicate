@@ -19,7 +19,7 @@ const PrimaryButton = (button: IButtonProps) => {
         href="/"
         className={
           button.buttonColor +
-          " font-semibold py-2 px-4 rounded-full w-fit uppercase"
+          " font-semibold py-2 px-6 rounded-full w-fit uppercase text-sm"
         }
       >
         {button.text}
