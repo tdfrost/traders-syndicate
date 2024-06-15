@@ -11,6 +11,40 @@ const textVariants = {
   reveal: { opacity: 1 },
 }
 
+const faqVariants = {
+  hidden: {
+    opacity: 0,
+    transition: { type: "easeInOut", duration: 0.8 },
+  },
+  reveal: {
+    opacity: 1,
+    transition: { delay: 1.8, type: "easeIn", duration: 0.4 },
+  },
+  fadeInRightHidden: { opacity: 0, x: -25 },
+  fadeInRightShow: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      x: {
+        duration: 0.7,
+      },
+      staggerChildren: 0.125,
+      delayChildren: 0.7,
+    },
+  },
+}
+
+const question = {
+  fadeInRightHidden: {
+    opacity: 0,
+    x: -25,
+  },
+  fadeInRightShow: {
+    opacity: 1,
+    x: 0,
+  },
+}
+
 const headlinetext = "FAQ"
 
 const Faq = () => {
@@ -23,7 +57,7 @@ const Faq = () => {
         <motion.h1
           initial="hidden"
           whileInView="reveal"
-          transition={{ staggerChildren: 0.02 }}
+          transition={{ staggerChildren: 0.1 }}
           className="text-white text-6xl md:text-7xl text-center font-medium md:font-semibold tracking-wider"
         >
           {headlineCharacters.map((character: string) => (
@@ -37,32 +71,48 @@ const Faq = () => {
           ))}
         </motion.h1>
       </div>
-      <div className="flex flex-col space-y-9 md:space-y-11">
-        <FaqQuesiton
-          question="Tu pregunta amigo?"
-          answer="Lorizzle ipsizzle dolor sit amizzle, hizzle adipiscing elit. Bow wow wow sapien velizzle, aliquet volutpizzle, suscipit quizzle, gravida vizzle, i'm in the shizzle. Hizzle fo shizzle mah nizzle fo rizzle, mah home g-dizzle tortizzle. Nizzle erizzle. Fusce izzle dolizzle dapibus tempizzle break yo neck, yall. Maurizzle pellentesque nibh gizzle turpizzle. I saw beyonces tizzles and my pizzle went crizzle gangster dizzle. Cool you son of a bizzle rhoncizzle shiznit. In hac pot platea dictumst. Ass dapibizzle. Things tellus urna, pretizzle crackalackin, mattizzle ac, eleifend vitae, nunc. Mammasay mammasa mamma oo sa suscipizzle. Integer sempizzle velit sizzle dope."
-        />
+      <motion.div
+        variants={faqVariants}
+        initial="fadeInRightHidden"
+        whileInView="fadeInRightShow"
+        viewport={{ once: true }}
+        className="flex flex-col space-y-9 md:space-y-11"
+      >
+        <motion.div variants={question}>
+          <FaqQuesiton
+            question="Tu pregunta amigo?"
+            answer="Lorizzle ipsizzle dolor sit amizzle, hizzle adipiscing elit. Bow wow wow sapien velizzle, aliquet volutpizzle, suscipit quizzle, gravida vizzle, i'm in the shizzle. Hizzle fo shizzle mah nizzle fo rizzle, mah home g-dizzle tortizzle. Nizzle erizzle. Fusce izzle dolizzle dapibus tempizzle break yo neck, yall. Maurizzle pellentesque nibh gizzle turpizzle. I saw beyonces tizzles and my pizzle went crizzle gangster dizzle. Cool you son of a bizzle rhoncizzle shiznit. In hac pot platea dictumst. Ass dapibizzle. Things tellus urna, pretizzle crackalackin, mattizzle ac, eleifend vitae, nunc. Mammasay mammasa mamma oo sa suscipizzle. Integer sempizzle velit sizzle dope."
+          />
+        </motion.div>
 
-        <FaqQuesiton
-          question="Tu pregunta amigo?"
-          answer="Lorizzle ipsizzle dolor sit amizzle, hizzle adipiscing elit. Bow wow wow sapien velizzle, aliquet volutpizzle, suscipit quizzle, gravida vizzle, i'm in the shizzle. Hizzle fo shizzle mah nizzle fo rizzle, mah home g-dizzle tortizzle. Nizzle erizzle. Fusce izzle dolizzle dapibus tempizzle break yo neck, yall. Maurizzle pellentesque nibh gizzle turpizzle. I saw beyonces tizzles and my pizzle went crizzle gangster dizzle. Cool you son of a bizzle rhoncizzle shiznit. In hac pot platea dictumst. Ass dapibizzle. Things tellus urna, pretizzle crackalackin, mattizzle ac, eleifend vitae, nunc. Mammasay mammasa mamma oo sa suscipizzle. Integer sempizzle velit sizzle dope."
-        />
+        <motion.div variants={question}>
+          <FaqQuesiton
+            question="Tu pregunta amigo?"
+            answer="Lorizzle ipsizzle dolor sit amizzle, hizzle adipiscing elit. Bow wow wow sapien velizzle, aliquet volutpizzle, suscipit quizzle, gravida vizzle, i'm in the shizzle. Hizzle fo shizzle mah nizzle fo rizzle, mah home g-dizzle tortizzle. Nizzle erizzle. Fusce izzle dolizzle dapibus tempizzle break yo neck, yall. Maurizzle pellentesque nibh gizzle turpizzle. I saw beyonces tizzles and my pizzle went crizzle gangster dizzle. Cool you son of a bizzle rhoncizzle shiznit. In hac pot platea dictumst. Ass dapibizzle. Things tellus urna, pretizzle crackalackin, mattizzle ac, eleifend vitae, nunc. Mammasay mammasa mamma oo sa suscipizzle. Integer sempizzle velit sizzle dope."
+          />
+        </motion.div>
 
-        <FaqQuesiton
-          question="Tu pregunta amigo?"
-          answer="Lorizzle ipsizzle dolor sit amizzle, hizzle adipiscing elit. Bow wow wow sapien velizzle, aliquet volutpizzle, suscipit quizzle, gravida vizzle, i'm in the shizzle. Hizzle fo shizzle mah nizzle fo rizzle, mah home g-dizzle tortizzle. Nizzle erizzle. Fusce izzle dolizzle dapibus tempizzle break yo neck, yall. Maurizzle pellentesque nibh gizzle turpizzle. I saw beyonces tizzles and my pizzle went crizzle gangster dizzle. Cool you son of a bizzle rhoncizzle shiznit. In hac pot platea dictumst. Ass dapibizzle. Things tellus urna, pretizzle crackalackin, mattizzle ac, eleifend vitae, nunc. Mammasay mammasa mamma oo sa suscipizzle. Integer sempizzle velit sizzle dope."
-        />
+        <motion.div variants={question}>
+          <FaqQuesiton
+            question="Tu pregunta amigo?"
+            answer="Lorizzle ipsizzle dolor sit amizzle, hizzle adipiscing elit. Bow wow wow sapien velizzle, aliquet volutpizzle, suscipit quizzle, gravida vizzle, i'm in the shizzle. Hizzle fo shizzle mah nizzle fo rizzle, mah home g-dizzle tortizzle. Nizzle erizzle. Fusce izzle dolizzle dapibus tempizzle break yo neck, yall. Maurizzle pellentesque nibh gizzle turpizzle. I saw beyonces tizzles and my pizzle went crizzle gangster dizzle. Cool you son of a bizzle rhoncizzle shiznit. In hac pot platea dictumst. Ass dapibizzle. Things tellus urna, pretizzle crackalackin, mattizzle ac, eleifend vitae, nunc. Mammasay mammasa mamma oo sa suscipizzle. Integer sempizzle velit sizzle dope."
+          />
+        </motion.div>
 
-        <FaqQuesiton
-          question="Tu pregunta amigo?"
-          answer="Lorizzle ipsizzle dolor sit amizzle, hizzle adipiscing elit. Bow wow wow sapien velizzle, aliquet volutpizzle, suscipit quizzle, gravida vizzle, i'm in the shizzle. Hizzle fo shizzle mah nizzle fo rizzle, mah home g-dizzle tortizzle. Nizzle erizzle. Fusce izzle dolizzle dapibus tempizzle break yo neck, yall. Maurizzle pellentesque nibh gizzle turpizzle. I saw beyonces tizzles and my pizzle went crizzle gangster dizzle. Cool you son of a bizzle rhoncizzle shiznit. In hac pot platea dictumst. Ass dapibizzle. Things tellus urna, pretizzle crackalackin, mattizzle ac, eleifend vitae, nunc. Mammasay mammasa mamma oo sa suscipizzle. Integer sempizzle velit sizzle dope."
-        />
+        <motion.div variants={question}>
+          <FaqQuesiton
+            question="Tu pregunta amigo?"
+            answer="Lorizzle ipsizzle dolor sit amizzle, hizzle adipiscing elit. Bow wow wow sapien velizzle, aliquet volutpizzle, suscipit quizzle, gravida vizzle, i'm in the shizzle. Hizzle fo shizzle mah nizzle fo rizzle, mah home g-dizzle tortizzle. Nizzle erizzle. Fusce izzle dolizzle dapibus tempizzle break yo neck, yall. Maurizzle pellentesque nibh gizzle turpizzle. I saw beyonces tizzles and my pizzle went crizzle gangster dizzle. Cool you son of a bizzle rhoncizzle shiznit. In hac pot platea dictumst. Ass dapibizzle. Things tellus urna, pretizzle crackalackin, mattizzle ac, eleifend vitae, nunc. Mammasay mammasa mamma oo sa suscipizzle. Integer sempizzle velit sizzle dope."
+          />
+        </motion.div>
 
-        <FaqQuesiton
-          question="Tu pregunta amigo?"
-          answer="Lorizzle ipsizzle dolor sit amizzle, hizzle adipiscing elit. Bow wow wow sapien velizzle, aliquet volutpizzle, suscipit quizzle, gravida vizzle, i'm in the shizzle. Hizzle fo shizzle mah nizzle fo rizzle, mah home g-dizzle tortizzle. Nizzle erizzle. Fusce izzle dolizzle dapibus tempizzle break yo neck, yall. Maurizzle pellentesque nibh gizzle turpizzle. I saw beyonces tizzles and my pizzle went crizzle gangster dizzle. Cool you son of a bizzle rhoncizzle shiznit. In hac pot platea dictumst. Ass dapibizzle. Things tellus urna, pretizzle crackalackin, mattizzle ac, eleifend vitae, nunc. Mammasay mammasa mamma oo sa suscipizzle. Integer sempizzle velit sizzle dope."
-        />
-      </div>
+        <motion.div variants={question}>
+          <FaqQuesiton
+            question="Tu pregunta amigo?"
+            answer="Lorizzle ipsizzle dolor sit amizzle, hizzle adipiscing elit. Bow wow wow sapien velizzle, aliquet volutpizzle, suscipit quizzle, gravida vizzle, i'm in the shizzle. Hizzle fo shizzle mah nizzle fo rizzle, mah home g-dizzle tortizzle. Nizzle erizzle. Fusce izzle dolizzle dapibus tempizzle break yo neck, yall. Maurizzle pellentesque nibh gizzle turpizzle. I saw beyonces tizzles and my pizzle went crizzle gangster dizzle. Cool you son of a bizzle rhoncizzle shiznit. In hac pot platea dictumst. Ass dapibizzle. Things tellus urna, pretizzle crackalackin, mattizzle ac, eleifend vitae, nunc. Mammasay mammasa mamma oo sa suscipizzle. Integer sempizzle velit sizzle dope."
+          />
+        </motion.div>
+      </motion.div>
     </div>
   )
 }
