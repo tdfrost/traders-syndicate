@@ -5,6 +5,7 @@ import MembershipCard, {
   Size,
 } from "@/components/cards/MembershipCard"
 import Navbar from "@/components/navbar/Navbar"
+import splitStringUsingRegex from "@/utils/splitStringUsingRegex"
 import { motion, useInView } from "framer-motion"
 import Link from "next/link"
 import React, { useRef } from "react"
@@ -55,6 +56,8 @@ const cardThree: Details = {
   size: Size.Small,
 }
 
+const headlineText = "Join The Syndicate"
+
 const Membership = () => {
   const ref = useRef(null)
   const isInView = useInView(ref)
@@ -77,7 +80,25 @@ const Membership = () => {
           duration: 0.7,
         },
         staggerChildren: 0.2,
-        delayChildren: 0.3,
+        delayChildren: 2,
+      },
+    },
+  }
+
+  const textVariants = {
+    hidden: { opacity: 0 },
+    reveal: { opacity: 1 },
+  }
+
+  const subheadlineVariants = {
+    fadeInTopHidden: {
+      opacity: 0,
+    },
+    fadeInTopShow: {
+      opacity: 1,
+      transition: {
+        delay: 1.2,
+        duraiton: 0.4,
       },
     },
   }
@@ -93,16 +114,40 @@ const Membership = () => {
     },
   }
 
+  const headlineCharacters = splitStringUsingRegex(headlineText)
+
   return (
     <div className="w-full my-8">
       <Navbar />
-      <div className="h-[300px] md:h-[320px] flex flex-col items-center justify-center space-y-4">
-        <h1 className="text-white text-6xl md:text-7xl text-center font-medium md:font-semibold tracking-wider">
-          Join The Syndicate
-        </h1>
-        <h2 className="text-white text-xl text-center">
+      <div className="h-[300px] md:h-[260px] md:mt-[30px] flex flex-col items-center justify-center space-y-4">
+        <motion.h1
+          variants={textVariants}
+          initial="hidden"
+          whileInView="reveal"
+          viewport={{ once: true }}
+          transition={{ staggerChildren: 0.028 }}
+          className="text-white text-6xl md:text-7xl text-center font-medium md:font-semibold tracking-wider"
+        >
+          {headlineCharacters.map((character: string) => (
+            <motion.span
+              key={character}
+              transition={{ duration: 0.35 }}
+              variants={textVariants}
+              viewport={{ once: true }}
+            >
+              {character}
+            </motion.span>
+          ))}
+        </motion.h1>
+        <motion.h2
+          variants={subheadlineVariants}
+          initial="fadeInTopHidden"
+          whileInView="fadeInTopShow"
+          viewport={{ once: true }}
+          className="text-white text-xl text-center"
+        >
           Learn to follow the rules that keep you in the trade.
-        </h2>
+        </motion.h2>
       </div>
       <motion.div
         variants={variants}

@@ -28,7 +28,7 @@ const faqVariants = {
       x: {
         duration: 0.7,
       },
-      staggerChildren: 0.125,
+      staggerChildren: 0.14,
       delayChildren: 0.7,
     },
   },
@@ -57,7 +57,7 @@ const Faq = () => {
         <motion.h1
           initial="hidden"
           whileInView="reveal"
-          transition={{ staggerChildren: 0.1 }}
+          transition={{ staggerChildren: 0.12 }}
           className="text-white text-6xl md:text-7xl text-center font-medium md:font-semibold tracking-wider"
         >
           {headlineCharacters.map((character: string) => (
