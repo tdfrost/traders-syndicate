@@ -5,14 +5,15 @@ import ClosingCta from "@/components/cta/ClosingCta"
 import Loader from "@/components/loader/Loader"
 import Navbar from "@/components/navbar/Navbar"
 import TimeLine from "@/components/timeline/TimeLine"
+import useIntro from "@/hooks/useIntro"
 import { AnimatePresence, delay, motion, useInView } from "framer-motion"
 import Image from "next/image"
 import { useRef, useState } from "react"
 
 const Home = () => {
   const [loading, setLoading] = useState(true)
-  const ref = useRef(null)
-  const isInView = useInView(ref)
+  const mainPageref = useRef(null)
+  const isInView = useInView(mainPageref)
 
   const variants = {
     hidden: {
@@ -70,7 +71,7 @@ const Home = () => {
           initial="hidden"
           animate="reveal"
           className="text-white"
-          ref={ref}
+          ref={mainPageref}
         >
           <Navbar />
           <main className="w-full my-16 space-y-20 md:space-y-32">
