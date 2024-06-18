@@ -11,6 +11,7 @@ import Image from "next/image"
 import { useRef, useState } from "react"
 
 const Home = () => {
+  const showAnimation = useIntro()
   const [loading, setLoading] = useState(true)
   const mainPageref = useRef(null)
   const isInView = useInView(mainPageref)
@@ -51,7 +52,7 @@ const Home = () => {
 
   return (
     <AnimatePresence>
-      {loading ? (
+      {loading && showAnimation ? (
         <motion.div
           key="loader"
           exit={{
