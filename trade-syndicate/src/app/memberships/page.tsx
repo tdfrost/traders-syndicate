@@ -117,7 +117,7 @@ const Membership = () => {
   const headlineCharacters = splitStringUsingRegex(headlineText)
 
   return (
-    <div className="w-full my-8">
+    <div className="w-full">
       <Navbar />
       <div className="h-[300px] md:h-[260px] md:mt-[30px] flex flex-col items-center justify-center space-y-4">
         <motion.h1

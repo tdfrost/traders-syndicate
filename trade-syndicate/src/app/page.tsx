@@ -3,10 +3,14 @@
 import PrimaryButton, { ButtonType } from "@/components/buttons/PrimaryButton"
 import ClosingCta from "@/components/cta/ClosingCta"
 import Loader from "@/components/loader/Loader"
-import Navbar from "@/components/navbar/Navbar"
+const Navbar = dynamic(() => import("@/components/navbar/Navbar"), {
+  ssr: false,
+})
+//import Navbar from "@/components/navbar/Navbar"
 import TimeLine from "@/components/timeline/TimeLine"
 import useIntro from "@/hooks/useIntro"
 import { AnimatePresence, delay, motion, useInView } from "framer-motion"
+import dynamic from "next/dynamic"
 import Image from "next/image"
 import { useRef, useState } from "react"
 
@@ -23,7 +27,11 @@ const Home = () => {
     },
     reveal: {
       opacity: 1,
-      transition: { delay: 1.8, type: "easeIn", duration: 0.4 },
+      transition: {
+        delay: !showAnimation && loading ? 0.5 : 1.8,
+        type: "easeIn",
+        duration: 0.4,
+      },
     },
     fadeInDownHidden: { opacity: 0, y: -25 },
     fadeInDownShow: {

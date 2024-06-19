@@ -51,7 +51,7 @@ const Faq = () => {
   const headlineCharacters = splitStringUsingRegex(headlinetext)
 
   return (
-    <div className="w-full my-8">
+    <div className="w-full">
       <Navbar />
       <div className="h-[300px] md:h-[320px] flex items-center justify-center">
         <motion.h1
