@@ -12,6 +12,7 @@ import { AnimatePresence, delay, motion, useInView } from "framer-motion"
 import dynamic from "next/dynamic"
 import Image from "next/image"
 import { useRef, useState } from "react"
+import { prefix } from "@/utils/prefix"
 
 const Home = () => {
   const showAnimation = useIntro()
@@ -116,7 +117,7 @@ const Home = () => {
 
               <div className="flex items-center w-full">
                 <Image
-                  src="/hero-bull.webp"
+                  src="https://tdfrost.github.io/traders-syndicate/hero-bull.webp"
                   width={0}
                   height={0}
                   layout="responsive"
@@ -163,7 +164,7 @@ const Home = () => {
                   variants={card}
                 >
                   <Image
-                    src="/icons/meeting-icon.svg"
+                    src="https://tdfrost.github.io/traders-syndicate/icons/meeting-icon.svg"
                     width={80}
                     height={80}
                     alt="icon image of people in a meeting"
@@ -182,7 +183,7 @@ const Home = () => {
                   variants={card}
                 >
                   <Image
-                    src="/icons/bargraph.svg"
+                    src="https://tdfrost.github.io/traders-syndicate/icons/bargraph.svg"
                     width={80}
                     height={80}
                     alt="icon of a bar graph with an arrow facing to the upper right."
@@ -201,7 +202,7 @@ const Home = () => {
                   variants={card}
                 >
                   <Image
-                    src="/icons/coin.svg"
+                    src="https://tdfrost.github.io/traders-syndicate/icons/coin.svg"
                     width={80}
                     height={80}
                     alt="icon of a two coins"
@@ -228,7 +229,7 @@ const Home = () => {
             <div className="flex flex-col md:flex-row space-y-20 md:space-x-6 md:justify-around">
               <div>
                 <Image
-                  src="/images/iPhone-15.png"
+                  src="https://tdfrost.github.io/traders-syndicate/images/iPhone-15.png"
                   alt="A phone with with an open image of a discord community"
                   width={0}
                   height={0}
@@ -280,7 +281,7 @@ const Home = () => {
             <div>
               <div className="md:hidden w-full mb-24">
                 <Image
-                  src="/images/particle-sphere.webp"
+                  src="https://tdfrost.github.io/traders-syndicate/images/particle-sphere.webp"
                   width={0}
                   height={0}
                   layout="responsive"
