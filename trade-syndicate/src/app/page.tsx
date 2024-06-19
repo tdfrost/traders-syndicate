@@ -6,7 +6,6 @@ import Loader from "@/components/loader/Loader"
 const Navbar = dynamic(() => import("@/components/navbar/Navbar"), {
   ssr: false,
 })
-//import Navbar from "@/components/navbar/Navbar"
 import TimeLine from "@/components/timeline/TimeLine"
 import useIntro from "@/hooks/useIntro"
 import { AnimatePresence, delay, motion, useInView } from "framer-motion"
@@ -291,7 +290,7 @@ const Home = () => {
               </div>
 
               <h2 className="text-4xl md:text-5xl font-semibold mb-16">
-                Member's
+                {"Member's"}
                 <span className="text-red-orange-500"> Benefits</span>
               </h2>
 

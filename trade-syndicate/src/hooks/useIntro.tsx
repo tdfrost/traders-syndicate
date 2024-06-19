@@ -2,7 +2,9 @@ import React, { useEffect } from "react"
 
 const useIntro = () => {
   const currTimestamp = Date.now()
-  const prevTimestamp = JSON.parse(localStorage.getItem("timestamp") || "1000")
+  const prevTimestamp = JSON.parse(
+    global.window?.localStorage.getItem("timestamp") || "1000"
+  )
 
   const replayTimeLimit = 4 * 60 * 60 * 1000
 
