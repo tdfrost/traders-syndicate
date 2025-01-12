@@ -31,12 +31,12 @@ const Navbar = () => {
             >
               Home
             </Link>
-            <Link
+            {/* <Link
               className="text-white font-semibold text-lg hover:text-red-orange-500"
               href="/"
             >
               About Us
-            </Link>
+            </Link> */}
             <Link
               className="text-white font-semibold text-lg hover:text-red-orange-500"
               href="/faq"
@@ -114,11 +114,11 @@ const Navbar = () => {
                       Home
                     </a>
                   </li>
-                  <li>
+                  {/* <li>
                     <a href="#" className="text-3xl font-bold text-white">
                       About Us
                     </a>
-                  </li>
+                  </li> */}
                   <li>
                     <a href="/faq" className="text-3xl font-bold text-white">
                       FAQ
