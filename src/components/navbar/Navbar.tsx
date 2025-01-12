@@ -110,9 +110,9 @@ const Navbar = () => {
               >
                 <ul className="flex flex-col space-y-6 text-center">
                   <li>
-                    <a href="/" className="text-3xl font-bold text-white">
+                    <Link className="text-3xl font-bold text-white" href="/">
                       Home
-                    </a>
+                    </Link>
                   </li>
                   {/* <li>
                     <a href="#" className="text-3xl font-bold text-white">
@@ -120,17 +120,17 @@ const Navbar = () => {
                     </a>
                   </li> */}
                   <li>
-                    <a href="/faq" className="text-3xl font-bold text-white">
+                    <Link className="text-3xl font-bold text-white" href="/faq">
                       FAQ
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
-                      href="/memberships"
+                    <Link
                       className="text-3xl font-bold text-white"
+                      href="/memberships"
                     >
                       Memberships
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </motion.div>
